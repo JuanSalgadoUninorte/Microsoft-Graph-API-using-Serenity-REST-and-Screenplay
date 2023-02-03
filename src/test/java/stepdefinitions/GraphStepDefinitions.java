@@ -1,13 +1,9 @@
 package stepdefinitions;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
@@ -16,7 +12,6 @@ import task.GetLastEmail;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static util.enums.RestGraphService.BASE_URL;
-import static util.enums.RestGraphService.TOKEN;
 
 public class GraphStepDefinitions {
 
@@ -31,7 +26,7 @@ public class GraphStepDefinitions {
     }
 
     @When("The request to the API")
-    public void theRequestToTheAPI(DataTable dataTable) {
+    public void theRequestToTheAPI() {
         OnStage.theActorInTheSpotlight().attemptsTo(GetLastEmail.getLastEmail());
     }
 
